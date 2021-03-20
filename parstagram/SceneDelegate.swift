@@ -20,11 +20,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         if PFUser.current() != nil {
-            let main = UIStoryboard(name: "Main", bundle: nil)
-            let feedNavigationController = main.instantiateViewController(identifier: "feedNavigationController")
-            
-            window?.rootViewController = feedNavigationController
+            login()
         }
+    }
+    
+    func login() {
+        let main = UIStoryboard(name: "Main", bundle: nil)
+        let feedNavigationController = main.instantiateViewController(identifier: "feedNavigationController")
+        
+        window?.rootViewController = feedNavigationController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
